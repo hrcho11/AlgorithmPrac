@@ -15,6 +15,7 @@ Node* Delete(Node *head, int position)
         prevNode = pNode;
         pNode = pNode->next;
     }
+    //connect previous node->next to the next node BEFORE DELETION
     prevNode->next = pNode->next;
     delete pNode;
     return head;
