@@ -1,0 +1,38 @@
+node * insert(node * root, int value)
+{
+//새로 삽입될 노드를 하나 생성 
+    node* pNewNode = new node;
+    pNewNode->data = value;
+    pNewNode->left = pNewNode->right = nullptr;
+    
+    node* temp = root;
+    //root가 비어있다면 root를 생성
+    if(!temp){
+        temp = pNewNode;
+        return temp;
+    }
+//value가 현재 노드의 값보다 작다면 왼쪽으로
+//크다면 오른쪽으로 타고 들어간다.
+//타고 들어간 노드가 비어있다면 그 빈 노드에 새로운 노드를 삽입.
+    while(1){
+        if(temp->data > value){
+            if(temp->left)
+             temp = temp->left;
+            else{
+                temp->left = pNewNode;
+                break;
+            }
+        }
+           
+        else if(temp->data < value){
+            if(temp->right)
+             temp = temp->right;
+            else{
+                temp->right = pNewNode;
+                break;
+            }
+        }
+    }
+
+   return root;
+}
