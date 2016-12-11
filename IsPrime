@@ -1,0 +1,34 @@
+int main() {
+
+    int t =0;
+    cin >> t;
+    
+    while(t-->0){
+        
+        int n;
+        cin >> n;
+//2미만이면 소수가 아니다.
+        if(n<2){
+            cout << "Not prime" << endl;
+            continue;
+        }
+            
+        bool p = true;
+        for(int i=2; i*i <=n;++i){
+//임의의 숫자로 나누었을때 나머지가 0이면 나누어 떨어지는 것이니 소수가 아님
+            if(n%i==0){
+               p=false;
+                break;
+            }
+        }
+        if(p){
+            cout << "Prime" << endl;
+        }
+        else{
+            cout << "Not prime" << endl;
+        }
+        
+    }
+    
+    return 0;
+}
