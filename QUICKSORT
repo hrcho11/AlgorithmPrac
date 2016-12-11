@@ -1,0 +1,39 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+
+
+int partition(vector<int>& _list, int _leftIdx, int _rightIdx, int pivotIndex) {
+
+	int pivot = pivotIndex;
+	int left = _leftIdx;
+	int right = _rightIdx;
+
+	while (left < right) {
+		while (_list[pivot] >= _list[left] && left < _rightIdx) {
+			++left;
+		}
+		while (_list[pivot] <= _list[right] && right >_leftIdx) {
+			--right;
+		}
+		if (left > right)
+			break;
+        if(left !=right)
+		    swap(_list[left], _list[right]);
+	}
+    if(pivot != right)
+	    swap(_list[pivot], _list[right]);
+	pivot = right;
+	return pivot;
+}
+
+void quickSort(vector<int>& _list, int leftIndex, int rightIndex) {
+
+	if (leftIndex < rightIndex) {
+		int pivotVal = partition(_list, leftIndex, rightIndex, leftIndex);
+		quickSort(_list, leftIndex, pivotVal - 1);
+		quickSort(_list, pivotVal + 1, rightIndex);
+	}
+}
