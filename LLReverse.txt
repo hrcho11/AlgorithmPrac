@@ -1,0 +1,24 @@
+void ReversePrint(Node *head)
+{
+    if(!head)
+        return;
+
+	Node* currNode = head;
+	Node* NextNode = currNode->next;
+	Node* PrevNode = nullptr;
+	
+	while (NextNode) {
+		Node* tempCurrNode = currNode;
+		NextNode = currNode->next; 
+		if(NextNode)
+			currNode = currNode->next;
+		tempCurrNode->next = PrevNode;
+		PrevNode = tempCurrNode; 
+	}
+
+	while (currNode != nullptr) {
+
+		cout << currNode->data << endl;
+		currNode = currNode->next;
+	}
+}
