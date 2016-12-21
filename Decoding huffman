@@ -1,0 +1,20 @@
+void Decode_huff(node * root,string s)
+{
+    int nStringIndex =0;
+    while(s[nStringIndex]){
+          node* pNode = root;
+        while(pNode->left || pNode->right){       
+            switch(s[nStringIndex]){
+            case '0':
+                pNode = pNode->left;
+            break;
+            case '1':
+                pNode = pNode->right;
+            break;
+            }
+            ++nStringIndex;
+        }
+            cout << pNode->data;
+    }
+         
+}
