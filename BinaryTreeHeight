@@ -1,4 +1,4 @@
-int getHeight(Node* root){
+int GetHeight(Node* root){
             if(root ==nullptr)
                 return -1;
 
