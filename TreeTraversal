@@ -1,0 +1,33 @@
+void preOrder(node *root) {
+    
+    if(root != nullptr)//노드방문
+        cout << root->data << " ";
+    
+    if(root->left)//왼쪽 서브트리 방문
+        preOrder(root->left);
+    if(root->right)//오른쪽 서브트리 방문
+        preOrder(root->right);
+}
+
+
+void inOrder(node *root) {
+    
+    if(root->left)//왼쪽 서브트리 방문
+        inOrder(root->left);
+    
+    cout << root->data << " ";//노드방문
+    
+    if(root->right)//오른쪽 서브트리 방문
+        inOrder(root->right);
+}
+
+
+
+void postOrder(node *root) {
+    if(root->left)//왼쪽 서브트리 방문
+        postOrder(root->left);
+    if(root->right)//오른쪽 서브트리 방문
+        postOrder(root->right);
+    //노드방문
+    cout << root->data << " ";
+}

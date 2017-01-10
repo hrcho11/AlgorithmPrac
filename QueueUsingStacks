@@ -1,0 +1,58 @@
+#include <stack>
+#include <iostream>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    
+    int t=0;
+    
+    cin >> t;
+    
+    stack<int> s1;
+    stack<int> s2;
+    
+    while(t-->0){
+        
+        int n;
+        cin >> n;
+        switch(n){
+            case 1: {
+                
+                int val;
+                cin >> val;
+                s1.push(val);
+                break;
+            }
+            case 2:{
+                if(s2.empty()){
+                    while(!s1.empty()){
+                        s2.push(s1.top());
+                        s1.pop();
+                    }
+                   
+                }
+                 s2.pop();
+                 break;
+            }
+           
+            case 3:{
+                if(s2.empty()){
+                    while(!s1.empty()){
+                        s2.push(s1.top());
+                        s1.pop();
+               
+                    }
+                }
+                cout << s2.top() << endl;
+                break;
+            }
+                    
+            
+        }
+
+    }
+
+    return 0;
+}

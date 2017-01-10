@@ -1,0 +1,21 @@
+int bubbleSort(vector<int>& v){
+    static int totalNumSwap=0;
+    //the max iteration is v.size() -1 
+    for(int i=0; i < v.size()-1;++i){
+        int nSwap = 0;
+        //the last element of each iteration is sorted
+        for(int j=0; j < v.size()-i-1;++j){
+            if(v[j] > v[j+1]){
+                v[j] ^= v[j+1];
+                v[j+1] ^= v[j];
+                v[j] ^= v[j+1];
+                ++nSwap;
+                ++totalNumSwap;
+            }
+        }
+        
+        if(nSwap==0)
+            break;
+    }
+    return totalNumSwap;
+}

@@ -1,0 +1,41 @@
+bool ransom_note(vector<string> magazine, vector<string> ransom) {
+    //C++ 에서의 hash_map -> unordered_map;
+    unordered_map<string,int> hash_map;
+    
+    //magazine 안에있는 단어들을 unordered_map 컨테이너로 옮긴다.
+    for(auto x : magazine)
+    {
+        auto iter  = hash_map.find(x);
+        if(iter == hash_map.end()){
+             hash_map.insert(make_pair(x,0));
+        }
+        else{
+            int n =iter->second;
+            ++n;
+            iter->second =n;
+           
+        }
+    }
+    
+    //필요한 단어들을 key 값으로 unordered_map에서 찾는다.
+    //하나의 단어라도 없다면 false 를 리턴한다. 
+     for(auto x : ransom)
+    {
+        auto iter  = hash_map.find(x);
+        if(iter == hash_map.end())
+            return false;
+        else{
+            if(iter->second > 0){
+                --(iter->second);
+            }
+            else{
+                 hash_map.erase(iter);
+            }
+            
+        }
+           
+    }
+    
+    //검색이 끝났다면 필요한 모든 단어가 있는것이므로 true를 리턴
+    return true;    
+}

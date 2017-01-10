@@ -1,0 +1,59 @@
+bool is_balanced(string expression) {
+    
+    string str = expression;
+    int index =0;
+    stack<char> s;
+    while(str[index]){
+        
+        switch(str[index]){
+            case '[': 
+            case '(':
+            case '{':s.push(str[index]);
+            break;
+            case ']':{
+                if(s.empty())
+                    return false;
+            char letter = s.top();
+            if(letter != '['){
+                 return false;
+            }
+            else{
+                s.pop();
+            }
+            }
+          
+            break;
+            case ')':{
+                  if(s.empty())
+                    return false;
+                       char letter = s.top();
+            if(letter != '('){
+                 return false;
+            }
+            else{
+                s.pop();
+            }
+            }
+
+            break;
+            case '}':{
+                  if(s.empty())
+                    return false;
+                      char letter = s.top();
+            if(letter != '{'){
+                 return false;
+            }
+            else{
+                s.pop();
+            }
+            }
+       
+            break;
+        }
+        ++index;
+    }
+    
+    if(!s.empty())
+        return false;
+    return true;
+}

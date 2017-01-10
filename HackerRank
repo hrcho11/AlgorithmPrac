@@ -1,0 +1,69 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    
+    
+    int t =0;
+    cin >> t;
+    
+    while(t-->0){
+        int numCount;
+        cin >> numCount;  
+        if(numCount==1){
+             int n =0;
+            cin >> n;
+            cout << "YES" <<endl;
+        }
+        else if(numCount==2){
+            int n =0;
+            cin >> n;;
+            cin >> n;
+            cout << "NO" << endl;
+        }
+        else{
+         vector<int> vNum(numCount);
+        for(int i=0; i < numCount;++i){
+            int n =0;
+            cin >> n;
+            vNum[i] = n;
+        }
+        int indexI =0;
+        int indexJ =numCount-1;
+        int leftSum=vNum[indexI];
+        int rightSum=vNum[indexJ];
+        while(1){
+            if(indexI +2 ==indexJ){
+                   if(leftSum ==rightSum){
+                       cout << "YES" <<endl;
+                       break;
+                   }
+                   else{
+                       cout << "NO" <<endl;
+                       break;
+                   }
+             }
+            
+            if(leftSum <= rightSum){
+                     ++indexI;
+                leftSum+=vNum[indexI];
+            }
+               
+            else if(leftSum > rightSum){
+                 --indexJ;
+                 rightSum+=vNum[indexJ];
+            }             
+            } 
+        }
+ 
+        
+    }
+    
+    return 0;
+}

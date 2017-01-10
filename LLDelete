@@ -1,0 +1,22 @@
+Node* Delete(Node *head, int position)
+{
+  // Complete this method
+    int currPos = 0; //현재 포지션
+    Node* pNode = head;
+    Node* prevNode = nullptr;
+    if(position==0){
+        head = pNode->next;
+        delete pNode;
+        return head;
+    }
+    //현재 포지션이 패러미터값으로 받은 포지션이랑 동일 해 질 때까지 pNode의 값을 pNode->next로 대입한다.
+    while(currPos != position){
+         ++currPos;
+        prevNode = pNode;
+        pNode = pNode->next;
+    }
+    //connect previous node->next to the next node BEFORE DELETION
+    prevNode->next = pNode->next;
+    delete pNode;
+    return head;
+}

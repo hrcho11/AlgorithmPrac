@@ -1,0 +1,9 @@
+int GetHeight(Node* root){
+            if(root ==nullptr)
+                return -1;
+
+            int l = getHeight(root->left);
+            int r = getHeight(root->right);
+            
+            return l > r ? l+1 : r+1;
+        }

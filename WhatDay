@@ -1,0 +1,48 @@
+int main()
+{
+    
+    int Months[12] = { 31,28,31,30,31,30,31,31,30,31,30,31};
+
+    int m,n;
+    int Day;
+    int days =0;
+    scanf("%d %d",&m,&n);
+    
+    if(m!=1)
+    {
+        for(int i=m; i >1;--i)
+        {
+        days += Months[i-2];
+         } 
+    }
+    
+
+    Day = ((days-1)+n)%7;
+    switch(Day)
+    {
+        case 0:
+          printf("MON");
+            break;
+        case 1:
+            printf("TUE");
+            break;
+        case 2:
+             printf("WED");
+            break;
+        case 3:
+            printf("THU");
+            break;
+        case 4:
+            printf("FRI");
+            break;
+        case 5:
+             printf("SAT");
+            break;
+        case 6:
+            printf("SUN");
+            break;
+    }
+    
+
+    return 0;
+}

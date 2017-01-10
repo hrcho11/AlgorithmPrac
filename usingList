@@ -1,0 +1,13 @@
+int lonely_integer(vector < int > a) {
+    list<int> count;
+    for(int x : a){
+        auto iter =  find(begin(count),end(count),x);
+        if(iter == count.end()){
+             count.push_back(x);
+        }
+        else{
+            count.erase(iter);
+        }
+    }
+    return count.front();
+}

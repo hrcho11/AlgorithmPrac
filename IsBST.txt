@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 int arrInt[10000];
 int size;
@@ -47,3 +48,54 @@ bool checkBST(Node* root) {
      size=0;
       return InorderTraversal(root);
    }
+=======
+
+int arrInt[10000];
+int size;
+
+void InsertNumber(int val){
+    
+      
+    arrInt[size] = val;
+    size++;
+    
+}
+
+bool CheckSorted(){
+    if(size>1){
+    if(arrInt[size-1] <= arrInt[size-2]){
+        return false;
+    }
+        
+    else
+        return true;
+    }
+    
+    else
+        return true;
+}
+
+bool InorderTraversal(Node* root){
+
+    if(root->left){
+        if(!InorderTraversal(root->left))
+            return false;
+    }
+ 
+    InsertNumber(root->data);
+    if(!CheckSorted()){
+        return false;
+    }
+        
+    if(root->right){
+        if(!InorderTraversal(root->right))
+            return false;
+    }
+    
+    return true;
+}
+bool checkBST(Node* root) {
+     size=0;
+      return InorderTraversal(root);
+   }
+>>>>>>> 2d8d19e73858444a182fd25283997e9cd6620c0c

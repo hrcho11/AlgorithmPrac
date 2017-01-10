@@ -1,0 +1,22 @@
+#include<unordered_set>
+
+bool has_cycle(Node* head) {
+    if(!head)
+        return false;
+    
+    Node* pNode =head;
+    unordered_set<int*> s;
+    
+    while(pNode){
+      if(s.count(&(pNode->data))){
+          return true;
+      }
+      else{
+          s.insert(&(pNode->data));
+      }  
+       pNode = pNode->next;
+    }
+    
+    return false;
+    
+}
